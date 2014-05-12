@@ -30,7 +30,7 @@ jsEKIToolkit kood lingitakse lisades neile lingid leheküljele. Kõik kasutatud 
 ```
   
 ### Koodi allalaadimine ja paigaldamine (ja kaasalöömine)
-Koodi kõige kasutuskõlblikum variant asub Master harus ja on allalaaditav nupu alt XXXX. See on sama kood, mida kasutatakse linkides. Arendusi on näha teistes harudes. Kui sul on hea idee, mida me võiksime arendada, võta julgelt kontakti! GitHubi veateated (Issues) on ka hea kommunikatsioonikanal.
+Koodi kõige kasutuskõlblikum variant asub Master harus ja on allalaaditav paremal nupu alt *Download ZIP*. Oskajad võivad endale kloonida Git koodihoidla. See on sama kood, mida kasutatakse linkides. Arendused on näha teistes harudes. Kui sul on hea idee, mida me võiksime arendada, võta julgelt kontakti! GitHubi veateated (Issues) on ka hea kommunikatsioonikanal.
 Kui oskad javaskripti ise koodida, ole julge ja saada parandusi ja lisandusi meile. Meie oleme alles algajad.
 
 ## Kuidas alustada ja kasutusnäiteid
