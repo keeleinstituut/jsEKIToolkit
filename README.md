@@ -7,6 +7,7 @@ Eesti Keele Instituudi veebiteenuste moodul. EKIToolkit on javaskript moodul, mi
 * sõnade algvormi leida
 * (varsti) sõnade kohta otsida informatsiooni e-keelenõust ja sõnastikest
 
+
 ## Kasutamine
 
 EKIToolkiti koodi ei pea allalaadima ja paigaldama vaid on võimalik kasutada kahel viisil, linkida või allalaadida ja paigaldada. Kuna kood on alles arendamisel ja muutlik, on kõige lihtsam koodile linkida. Siis on kindel, et kasutatakse kõige viimast versiooni.
@@ -18,7 +19,9 @@ Peamoodul asub failis EKIToolkit.js ja lisamoodulid on jagatud vastavalt ülesan
 * EKISentModule.js — lausestamine
 * EKIQuantModule.js — sõna algvormi tüve vältemääramine
 
+
 ### Koodi linkimine leheküljelt
+
 jsEKIToolkit kood lingitakse lisades neile lingid leheküljele. Kõik kasutatud moodulid peavad ka olema lisatud.
 
 ```HTML
@@ -31,10 +34,12 @@ jsEKIToolkit kood lingitakse lisades neile lingid leheküljele. Kõik kasutatud 
 ```
   
 ### Koodi allalaadimine ja paigaldamine (ja kaasalöömine)
+
 Koodi kõige kasutuskõlblikum variant asub Master harus ja on allalaaditav paremal nupu alt *Download ZIP*. Oskajad võivad endale kloonida Git koodihoidla. See on sama kood, mida kasutatakse linkides. Arendused on näha teistes harudes. Kui sul on hea idee, mida me võiksime arendada, võta julgelt kontakti! GitHubi veateated (Issues) on ka hea kommunikatsioonikanal.
 Kui oskad javaskripti ise koodida, ole julge ja saada parandusi ja lisandusi meile. Meie oleme alles algajad.
 
 ## Kuidas alustada ja kasutusnäiteid
+
 Alljärgnev eeldab, et nii EKIToolkit.js kui ka EKIMorphModule.js koodifailid on leheküljele lisatud (kas lingitud või paigaldatud kujul).
 
 ```JavaScript
@@ -72,3 +77,7 @@ EKIToolkit.sandbox(function() {
   EKI.m.analyze();
 });
 ```
+
+## Kes kasutavad seda koodi?
+
+Praegu on ainsa kasutajana teada EKI [e-keelenõu](http://kn.eki.ee/) keeletööriistad [teksti morfoloogiline analüsaator](http://kn.eki.ee/tool/?m=morfoloogia), [teksti silbitaja](http://kn.eki.ee/tool/?m=silbitaja) ja [teksti lausestaja](http://kn.eki.ee/tool/?m=lausestaja). Kas sinul on huvitavaid kasutusmõtteid? Anna teada, väga põnev!
