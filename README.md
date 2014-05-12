@@ -39,17 +39,17 @@ Alljärgnev eeldab, et nii EKIToolkit.js kui ka EKIMorphModule.js koodifailid on
 ```JavaScript
 // kasutame ainult morfoloogiamoodulit
 EKIToolkit.use('morphology');
-// sinu kirjutatud kood jooksutatakse n.ö liivakastis, et tagada mängumeeleolu
+// meie kirjutatud kood jooksutatakse n.ö liivakastis, et tagada mängumeeleolu
 EKIToolkit.sandbox(function() {
   // analüüsimisek jaoks suvaline tekstijupp
-  random_sentence = „Appi appi! kass jooksis kappi!”;
+  random_sentence = "Appi appi! kass läks kappi!";
   
   // Enne analüüsi, on teksti vajalik üksustada sõnedeks
   // EKI.utils.simpleTokenizer funktsioon tükeldab sisestatud teksti tühikute
   // juurest, ja tagastab sõnede massiivi. Lihtsustades teeb ta
-  // [„Appi”, „appi!”] = „Appi appi!”.split();
+  // ["Appi", "appi!"] == "Appi appi!".split();
   // utils.SimpleTokenizer funktsioon asub EKIToolkit tuumas, ja on seega
-  //  alati kättesaadav.
+  // alati kättesaadav.
   
   tokenized_sentence = EKI.utils.simpleTokenizer(random_sentence);
   
