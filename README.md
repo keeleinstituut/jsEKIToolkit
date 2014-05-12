@@ -12,10 +12,11 @@ Eesti Keele Instituudi veebiteenuste moodul. EKIToolkit on javaskript moodul, mi
 EKIToolkiti koodi ei pea allalaadima ja paigaldama vaid on võimalik kasutada kahel viisil, linkida või allalaadida ja paigaldada. Kuna kood on alles arendamisel ja muutlik, on kõige lihtsam koodile linkida. Siis on kindel, et kasutatakse kõige viimast versiooni.
 Mõlemal lisamisviisi juhul on EKIToolkiti kood jagatud peamooduliks ja lisamooduliteks. Peamoodulit läheb alati vaja, aga on mõistlik lisada ainult need lisamoodulid, mida parajasti vaja läheb.
 Peamoodul asub failis EKIToolkit.js ja lisamoodulid on jagatud vastavalt ülesandele failidesse
-EKIMorphModule.js (morfoloogia)
-EKIDictModule.js (sõnastikud ja e-keelenõu)
-EKISyllModule.js (silbitamine)
-EKISentModule.js (lausestamine)
+* EKIMorphModule.js — sõna morfoloogiline analüüs
+* EKIDictModule.js — sõnastikud ja e-keelenõu (tulemas)
+* EKISyllModule.js — silbitamine
+* EKISentModule.js — lausestamine
+* EKIQuantModule.js — sõna algvormi tüve vältemääramine
 
 ### Koodi linkimine leheküljelt
 jsEKIToolkit kood lingitakse lisades neile lingid leheküljele. Kõik kasutatud moodulid peavad ka olema lisatud.
@@ -37,7 +38,7 @@ Kui oskad javaskripti ise koodida, ole julge ja saada parandusi ja lisandusi mei
 Alljärgnev eeldab, et nii EKIToolkit.js kui ka EKIMorphModule.js koodifailid on leheküljele lisatud (kas lingitud või paigaldatud kujul).
 
 ```JavaScript
-// kasutame ainult morfoloogiamoodulit
+// kasutame morfoloogiamoodulit
 EKIToolkit.use('morphology');
 // meie kirjutatud kood jooksutatakse n.ö liivakastis, et tagada mängumeeleolu
 EKIToolkit.sandbox(function() {
