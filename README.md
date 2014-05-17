@@ -2,6 +2,7 @@
 
 Eesti Keele Instituudi veebiteenuste moodul. EKIToolkit on javaskript moodul, mis võimaldab veebiseppadel integreerida EKI ressursse oma veebilehtedele. Moodul võimaldab lihtsalt:
 * teksti lausestada
+* koostada teksti n-grammide loendi
 * sõnu silbitada
 * sõnu morfoloogiliselt analüüsida
 * sõnade algvormi leida
