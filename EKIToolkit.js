@@ -148,7 +148,45 @@ EKIToolkit.prototype.utils.simpleTokenizer = function (text) {
 	 
 	 return tokenized_text;
 }
-
+EKIToolkit.prototype.utils.NGrams = function (text, n, splitter) {
+	/**
+	 * Lihtne n-grammide koostaja. Sisendiks on tekst, n-grammi pikkus ja
+	 * üksustamisreegel.
+	 * Vaikimisi on n-grammi pikkus 2 ehk bigramm;
+	 * vaikimisi üksustatakse tühemike pealt.
+	 * 
+	 * NB! tekstist ei koristata kirjavahemärke.
+	 */
+	var gramm = '', grammid = {}, i = 0;
+	
+	/* vaikimisi n pikkus on bigrammid */
+	if (n === undefined || !(n > 0)) {
+			n = 2;
+	}
+	/* vaikimisi segmendipiiriks on tühemikud */
+	if (splitter === undefined) {
+			splitter = /\s+/;
+	}
+	/* üksusta sisestatud tekst */
+	tekst = tekst.split(splitter);
+	
+	/* n-grammista tekst */
+	for (i=0; i<tekst.length; i+=1) {
+		/* ära ületa lausepiiri */
+		if ((i+n) > tekst.length) {
+				break;
+		}
+		gramm = tekst.slice(i,i+n);
+		gramm = gramm.join(" ");
+		/* salvesta või tõsta ngrammi esinevus */
+		if (!(gramm in grammid)) {
+				grammid[gramm] = 1;
+		} else {
+				grammid[gramm] += 1;
+		}
+	}
+	return grammid;
+}
 
 // moodulid registreeritakse praegu prototüüpi otse sisse, kuniks loader töötab
 EKIToolkit.prototype.modules = {};
