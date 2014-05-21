@@ -324,7 +324,7 @@ EKIToolkit.prototype.modules.Morph = function(EKI, config) {
 			"Vlyhi":			"verbi lühitüvi",
 			"Vvahe":			"verbi vahehäälikuga vorm"
 		}
-		return formList[key] || '';
+		return formList[key] || key;
 	}
 	
 	
@@ -348,7 +348,7 @@ EKIToolkit.prototype.modules.Morph = function(EKI, config) {
 			"S": "nimisõna",
 			"V": "tegusõna"
 		}
-		return posList[key] || '';
+		return posList[key] || key;
 	}
 	
 	
