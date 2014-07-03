@@ -118,6 +118,7 @@ function EKIToolkit() {
 
 // mitmed väiksed ja kasulikud meetodid
 EKIToolkit.prototype.utils = {};
+
 EKIToolkit.prototype.utils.create = function (object) {
 	/**
 	 * Crockford (2008:22) nimetab seda Object.create(o), mis loob uue
@@ -148,6 +149,7 @@ EKIToolkit.prototype.utils.simpleTokenizer = function (text) {
 	 
 	 return tokenized_text;
 }
+
 EKIToolkit.prototype.utils.NGrams = function (tekst, n, splitter, normalizeSpace) {
 	/**
 	 * Lihtne n-grammide koostaja. Sisendiks on tekst, n-grammi pikkus ja
@@ -194,6 +196,20 @@ EKIToolkit.prototype.utils.NGrams = function (tekst, n, splitter, normalizeSpace
 	return grammid;
 }
 
+EKIToolkit.prototype.utils.getSelectedText = function () {
+    /** 
+     * Lihtne funktsioon mis tagastab parajasti markeeritud teksti.
+     * Kui midagi pole markeeritud, tagastab Undefined.
+     */
+    if (window.getSelection) { // HTML5 standard API
+	return window.getSelection().toString();
+    } else if (document.selection) { // IE spetsiifiline
+	return document.selection.createRange().text;
+    }
+    else {
+	return undefined;
+    }
+}
 
 // moodulid registreeritakse praegu prototüüpi otse sisse, kuniks loader töötab
 EKIToolkit.prototype.modules = {};
