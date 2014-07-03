@@ -148,7 +148,7 @@ EKIToolkit.prototype.utils.simpleTokenizer = function (text) {
 	 
 	 return tokenized_text;
 }
-EKIToolkit.prototype.utils.NGrams = function (text, n, splitter) {
+EKIToolkit.prototype.utils.NGrams = function (tekst, n, splitter, normalizeSpace) {
 	/**
 	 * Lihtne n-grammide koostaja. Sisendiks on tekst, n-grammi pikkus ja
 	 * üksustamisreegel.
@@ -172,21 +172,28 @@ EKIToolkit.prototype.utils.NGrams = function (text, n, splitter) {
 	
 	/* n-grammista tekst */
 	for (i=0; i<tekst.length; i+=1) {
-		/* ära ületa lausepiiri */
+		/* ära ületa tekstipiiri */
 		if ((i+n) > tekst.length) {
 				break;
 		}
 		gramm = tekst.slice(i,i+n);
-		gramm = gramm.join(" ");
+                /* loendi jaoks tekitame grammi jaoks indeksi */
+		grammIndeks = gramm.join("");
+                /* indeks ei saa algada ega lõppeda tühikuga, seega võime
+                 * normaliseerida kõik tühikud mõne muu Unikood märgiga */
+                if (normalizeSpace !== undefined) {
+                    grammIndeks = grammIndeks.replace(" ", normalizeSpace);
+		}
 		/* salvesta või tõsta ngrammi esinevus */
-		if (!(gramm in grammid)) {
-				grammid[gramm] = 1;
+		if (!(grammIndeks in grammid)) {
+				grammid[grammIndeks] = 1;
 		} else {
-				grammid[gramm] += 1;
+				grammid[grammIndeks] += 1;
 		}
 	}
 	return grammid;
 }
+
 
 // moodulid registreeritakse praegu prototüüpi otse sisse, kuniks loader töötab
 EKIToolkit.prototype.modules = {};
