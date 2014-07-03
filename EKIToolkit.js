@@ -118,6 +118,7 @@ function EKIToolkit() {
 
 // mitmed väiksed ja kasulikud meetodid
 EKIToolkit.prototype.utils = {};
+
 EKIToolkit.prototype.utils.create = function (object) {
 	/**
 	 * Crockford (2008:22) nimetab seda Object.create(o), mis loob uue
@@ -148,7 +149,8 @@ EKIToolkit.prototype.utils.simpleTokenizer = function (text) {
 	 
 	 return tokenized_text;
 }
-EKIToolkit.prototype.utils.NGrams = function (text, n, splitter) {
+
+EKIToolkit.prototype.utils.NGrams = function (tekst, n, splitter, normalizeSpace) {
 	/**
 	 * Lihtne n-grammide koostaja. Sisendiks on tekst, n-grammi pikkus ja
 	 * üksustamisreegel.
@@ -172,20 +174,41 @@ EKIToolkit.prototype.utils.NGrams = function (text, n, splitter) {
 	
 	/* n-grammista tekst */
 	for (i=0; i<tekst.length; i+=1) {
-		/* ära ületa lausepiiri */
+		/* ära ületa tekstipiiri */
 		if ((i+n) > tekst.length) {
 				break;
 		}
 		gramm = tekst.slice(i,i+n);
-		gramm = gramm.join(" ");
+                /* loendi jaoks tekitame grammi jaoks indeksi */
+		grammIndeks = gramm.join("");
+                /* indeks ei saa algada ega lõppeda tühikuga, seega võime
+                 * normaliseerida kõik tühikud mõne muu Unikood märgiga */
+                if (normalizeSpace !== undefined) {
+                    grammIndeks = grammIndeks.replace(" ", normalizeSpace);
+		}
 		/* salvesta või tõsta ngrammi esinevus */
-		if (!(gramm in grammid)) {
-				grammid[gramm] = 1;
+		if (!(grammIndeks in grammid)) {
+				grammid[grammIndeks] = 1;
 		} else {
-				grammid[gramm] += 1;
+				grammid[grammIndeks] += 1;
 		}
 	}
 	return grammid;
+}
+
+EKIToolkit.prototype.utils.getSelectedText = function () {
+    /** 
+     * Lihtne funktsioon mis tagastab parajasti markeeritud teksti.
+     * Kui midagi pole markeeritud, tagastab Undefined.
+     */
+    if (window.getSelection) { // HTML5 standard API
+	return window.getSelection().toString();
+    } else if (document.selection) { // IE spetsiifiline
+	return document.selection.createRange().text;
+    }
+    else {
+	return undefined;
+    }
 }
 
 // moodulid registreeritakse praegu prototüüpi otse sisse, kuniks loader töötab
